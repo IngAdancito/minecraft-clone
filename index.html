@@ -12,6 +12,7 @@
                 <a href="#Que-es-minecraft">Que es Minecraft</a>
                 <a href="#Nuestros-Juegos">Nuestros Juegos</a>
                 <a href="#caracteristicas">Características</a>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema">🌙</button>
             </nav>
         </div>
     </header>
@@ -55,7 +56,7 @@
                     <form action="https://www.minecraft.net/es-es/about-legends">
                         <button>+ Info</button>
                     </form>
-                </div>  
+                </div>
             </div>
         </div>
     </section>
@@ -81,5 +82,28 @@
             <p>&copy; Adan Escandon</p>
         </div>
     </footer>
+    <script>
+        (function(){
+            const root = document.documentElement;
+            const toggle = document.getElementById('theme-toggle');
+            const saved = localStorage.getItem('theme');
+            const applyTheme = (theme) => {
+                if(theme === 'dark'){
+                    root.setAttribute('data-theme', 'dark');
+                    toggle.textContent = '☀️';
+                } else {
+                    root.removeAttribute('data-theme');
+                    toggle.textContent = '🌙';
+                }
+            };
+            applyTheme(saved === 'dark' ? 'dark' : 'light');
+            toggle.addEventListener('click', () => {
+                const isDark = root.getAttribute('data-theme') === 'dark';
+                const next = isDark ? 'light' : 'dark';
+                applyTheme(next);
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+:root{
+    --bg-body: #ffffff;
+    --bg-header: rgb(0, 0, 0);
+    --bg-section-dark: rgb(30, 30, 30);
+    --bg-footer: rgb(230, 230, 230);
+    --bg-carta: rgb(51, 51, 51);
+    --text-primary: #000000;
+    --text-on-dark: #ffffff;
+    --text-footer: rgb(100, 100, 100);
+    --text-nav: rgb(255, 255, 255);
+    --accent: green;
+    --accent-features: rgb(3, 116, 22);
+    --button-bg: green;
+    --button-color: #ffffff;
+    --button-hover: rgb(53, 53, 53);
+    --border-button: rgba(0, 0, 0, 0.3);
+    --shadow-button: rgba(0, 0, 0, 0.5);
+    --overlay: rgba(0, 0, 0, 0.5);
+}
+[data-theme="dark"]{
+    --bg-body: rgb(15, 15, 15);
+    --bg-header: rgb(0, 0, 0);
+    --bg-section-dark: rgb(8, 8, 8);
+    --bg-footer: rgb(20, 20, 20);
+    --bg-carta: rgb(25, 25, 25);
+    --text-primary: rgb(230, 230, 230);
+    --text-on-dark: #ffffff;
+    --text-footer: rgb(170, 170, 170);
+    --text-nav: rgb(230, 230, 230);
+    --accent: rgb(80, 200, 90);
+    --accent-features: rgb(80, 200, 90);
+    --button-bg: rgb(40, 140, 50);
+    --button-color: #ffffff;
+    --button-hover: rgb(80, 200, 90);
+    --border-button: rgba(255, 255, 255, 0.2);
+    --shadow-button: rgba(0, 0, 0, 0.8);
+    --overlay: rgba(0, 0, 0, 0.75);
+}

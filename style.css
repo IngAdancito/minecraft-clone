@@ -1,3 +1,4 @@
+@import url("variables.css");
 *{
     box-sizing: border-box;
 }
@@ -7,6 +8,9 @@ html{
 body{
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 h1{ font-size: 3.5em;}
 h2{ font-size: 2.7em;}
@@ -19,28 +23,28 @@ button{
     font-weight: bold;
     padding: 10px 30px;
     border-radius: 5px;
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    color: white;
-    background-color: green;
+    border: 2px solid var(--border-button);
+    box-shadow: 2px 2px 10px var(--shadow-button);
+    color: var(--button-color);
+    background-color: var(--button-bg);
+    cursor: pointer;
 }
 button:hover{
-    background-color:rgb(53, 53, 53);
+    background-color: var(--button-hover);
 }
 .container{
     max-width: 1400px;
     margin: auto;
 }
-.color-acento{ color: green; }
+.color-acento{ color: var(--accent); }
 header{
-    background-color: rgb(0, 0, 0);
-    
+    background-color: var(--bg-header);
 }
 header .logo{
     margin: 0;
     padding: 25px 30px;
     font-weight: bold;
-    color: green;
+    color: var(--accent);
     font-size: 1.6em;
 }
 header .container{
@@ -53,15 +57,36 @@ header nav{
     flex-direction: column;
     text-align: center;
     padding-bottom: 25px;
+    align-items: center;
 }
 header a{
     padding: 5px 12px;
     text-decoration: none;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: var(--text-nav);
 }
 header a:hover{
-    color: green;
+    color: var(--accent);
+}
+.theme-toggle{
+    margin: 10px 12px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 1.1em;
+    line-height: 1;
+    background-color: transparent;
+    color: var(--text-nav);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle:hover{
+    background-color: var(--accent);
 }
 #hero{
     display: flex;
@@ -72,8 +97,8 @@ header a:hover{
     height: 90vh;
     background-image: linear-gradient(
         0deg,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
+        var(--overlay),
+        var(--overlay)
     )
     ,url("imagenes/inicio.jpg");
     background-repeat: no-repeat;
@@ -81,7 +106,7 @@ header a:hover{
     background-position: center center;
 }
 #hero h1{
-    color: white;
+    color: var(--text-on-dark);
 }
 #hero button{
     font-size: 1.75em;
@@ -91,8 +116,8 @@ header a:hover{
     padding: 50px;
 }
 #Nuestros-Juegos{
-    background-color: rgb(30,30,30);
-    color: white;
+    background-color: var(--bg-section-dark);
+    color: var(--text-on-dark);
     text-align: center;
 }
 #Nuestros-Juegos .container{
@@ -115,32 +140,30 @@ header a:hover{
 .carta:first-child{
     background-image: linear-gradient(
         0deg,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
+        var(--overlay),
+        var(--overlay)
     )
     ,url("imagenes/minecraft.jpg");
-
 }
 .carta:nth-child(2){
     background-image: linear-gradient(
         0deg,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
+        var(--overlay),
+        var(--overlay)
     )
     ,url("imagenes/dugeons.jpg");
 }
 .carta:nth-child(3){
     background-image: linear-gradient(
         0deg,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
+        var(--overlay),
+        var(--overlay)
     )
     ,url("imagenes/legends.jpeg");
-
 }
 #caracteristicas h1{
     text-align: center;
-    color: rgb(3, 116, 22);
+    color: var(--accent-features);
 }
 #caracteristicas .container{
     text-align: center;
@@ -156,8 +179,8 @@ header a:hover{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgb(30,30,30);
-    color: white;
+    background-color: var(--bg-section-dark);
+    color: var(--text-on-dark);
     height: 80vh;
 }
 #final h2{
@@ -167,12 +190,12 @@ header a:hover{
     font-size: 5vw;
 }
 footer{
-    background-color: rgb(230,230,230);
+    background-color: var(--bg-footer);
 }
 footer p{
     margin: 0;
     padding: 12px;
-    color: rgb(100,100,100);
+    color: var(--text-footer);
 }
 footer .container{
     height: 150px;
@@ -184,6 +207,7 @@ footer .container{
     header{
         position: fixed;
         width: 100%;
+        z-index: 10;
     }
     header .container{
         flex-direction: row;
@@ -193,6 +217,7 @@ footer .container{
         flex-direction: row;
         padding-bottom: 0;
         padding-right: 20px;
+        align-items: center;
     }
     #hero h1{
         font-size: 5em;
@@ -218,7 +243,7 @@ footer .container{
         background-size: cover;
         background-position: center center;
         height: 500px;
-        width: 400px; 
+        width: 400px;
     }
     #Nuestros-Juegos .Juegos{
         display: flex;
@@ -239,41 +264,38 @@ footer .container{
         background-size: 100% 400px;
         background-repeat: no-repeat;
         background-position-y: 0;
-        background-color: rgb(51, 51, 51);
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        background-color: var(--bg-carta);
+        box-shadow: 2px 2px 10px var(--shadow-button);
     }
     .carta:first-child{
         background-image: linear-gradient(
             0deg,
-            rgba(0,0,0,0.5),
-            rgba(0,0,0,0.5)
+            var(--overlay),
+            var(--overlay)
         )
         ,url("imagenes/minecraft.jpg");
-
     }
     .carta:nth-child(2){
         background-image: linear-gradient(
             0deg,
-            rgba(0,0,0,0.5),
-            rgba(0,0,0,0.5)
+            var(--overlay),
+            var(--overlay)
         )
         ,url("imagenes/dugeons.jpg");
     }
     .carta:nth-child(3){
         background-image: linear-gradient(
             0deg,
-            rgba(0,0,0,0.5),
-            rgba(0,0,0,0.5)
+            var(--overlay),
+            var(--overlay)
         )
         ,url("imagenes/legends.jpeg");
-
     }
     #caracteristicas{
         background-image: url("imagenes/panda.gif");
         background-repeat: no-repeat;
         background-size: 500px 400px;
         background-position: calc(100vw - 500px)  300px;
-        
     }
     #caracteristicas .container{
         text-align: initial;
