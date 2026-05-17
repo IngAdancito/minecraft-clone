@@ -4,16 +4,20 @@
 }
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 body{
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    padding-top: 110px;
+    overflow-x: hidden;
+    max-width: 100%;
     background-color: var(--bg-body);
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-h1{ font-size: 3.5em;}
-h2{ font-size: 2.7em;}
+h1{ font-size: 2em;}
+h2{ font-size: 1.8em;}
 h3{ font-size: 2em;}
 p{ font-size: 1.25em;}
 ul{ list-style: none;}
@@ -38,42 +42,50 @@ button:hover{
 }
 .color-acento{ color: var(--accent); }
 header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
     background-color: var(--bg-header);
 }
 header .logo{
     margin: 0;
-    padding: 25px 30px;
+    padding: 15px 20px 8px;
     font-weight: bold;
     color: var(--accent);
-    font-size: 1.6em;
+    font-size: 1.5em;
+    text-align: center;
 }
 header .container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 }
 header nav{
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 25px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 4px 6px;
+    padding: 0 8px 12px;
 }
 header a{
-    padding: 5px 12px;
+    padding: 6px 10px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.95em;
     color: var(--text-nav);
 }
 header a:hover{
     color: var(--accent);
 }
 .theme-toggle{
-    margin: 10px 12px;
-    width: 42px;
-    height: 42px;
+    margin: 0 4px;
+    width: 34px;
+    height: 34px;
     padding: 0;
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 1;
     background-color: transparent;
     color: var(--text-nav);
@@ -95,6 +107,7 @@ header a:hover{
     text-align: center;
     flex-direction: column;
     height: 90vh;
+    padding: 0 1rem;
     background-image: linear-gradient(
         0deg,
         var(--overlay),
@@ -112,8 +125,20 @@ header a:hover{
     font-size: 1.75em;
 }
 #Que-es-minecraft .container{
+    padding: 30px 1.5rem;
     text-align: center;
-    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Que-es-minecraft .img-container{
+    background-image: url("imagenes/personajes.jpg");
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    max-width: 350px;
+    height: 280px;
+    border-radius: 10px;
 }
 #Nuestros-Juegos{
     background-color: var(--bg-section-dark);
@@ -121,21 +146,37 @@ header a:hover{
     text-align: center;
 }
 #Nuestros-Juegos .container{
-    padding: 90px;
+    padding: 40px 1rem;
+    width: 100%;
 }
 #Nuestros-Juegos h2{
     margin-top: 0;
-    font-size: 3.2em;
+    font-size: 2.2em;
 }
 #Nuestros-Juegos p{
-    display: none;
+    display: block;
+}
+#Nuestros-Juegos .Juegos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0;
 }
 #Nuestros-Juegos .carta{
-    background-position: center center;
-    background-size: cover;
-    padding: 200px 50px;
-    margin: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 180px 20px 20px;
     border-radius: 15px;
+    background-size: 100% 180px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: var(--bg-carta);
+}
+#Nuestros-Juegos .carta form{
+    margin: 0;
 }
 .carta:first-child{
     background-image: linear-gradient(
@@ -166,8 +207,13 @@ header a:hover{
     color: var(--accent-features);
 }
 #caracteristicas .container{
+    padding: 60px 1.5rem;
     text-align: center;
-    padding: 200px 50px;
+}
+#caracteristicas ul{
+    display: inline-block;
+    text-align: left;
+    padding-left: 0;
 }
 #caracteristicas li{
     margin: 16px 0px;
@@ -179,6 +225,7 @@ header a:hover{
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 1rem;
     background-color: var(--bg-section-dark);
     color: var(--text-on-dark);
     height: 80vh;
@@ -204,27 +251,44 @@ footer .container{
     align-items: flex-end;
 }
 @media (min-width: 850px){
-    header{
-        position: fixed;
-        width: 100%;
-        z-index: 10;
+    body{
+        padding-top: 0;
+    }
+    h1{ font-size: 3.5em;}
+    h2{ font-size: 2.7em;}
+    header .logo{
+        padding: 25px 30px;
+        font-size: 1.6em;
+        text-align: initial;
     }
     header .container{
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
     header nav{
-        flex-direction: row;
-        padding-bottom: 0;
-        padding-right: 20px;
-        align-items: center;
+        flex-wrap: nowrap;
+        padding: 0 20px 0 0;
+        gap: 0;
+    }
+    header a{
+        padding: 5px 12px;
+        font-size: 1em;
+    }
+    .theme-toggle{
+        margin: 10px 12px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1em;
     }
     #hero h1{
         font-size: 5em;
     }
     #Que-es-minecraft .container{
-        display: flex;
+        padding: 50px;
+        flex-direction: row;
         justify-content: space-evenly;
+        align-items: initial;
     }
     #Que-es-minecraft .texto{
         width: 50%;
@@ -239,18 +303,20 @@ footer .container{
         margin-top: 0px;
     }
     #Que-es-minecraft .img-container{
-        background-image: url("imagenes/personajes.jpg");
-        background-size: cover;
-        background-position: center center;
         height: 500px;
         width: 400px;
+        max-width: none;
+        border-radius: 0;
+    }
+    #Nuestros-Juegos .container{
+        padding: 90px;
     }
     #Nuestros-Juegos .Juegos{
-        display: flex;
+        flex-direction: row;
         justify-content: center;
+        gap: 0;
     }
     #Nuestros-Juegos p{
-        display: block;
         margin-bottom: 30px;
     }
     #Nuestros-Juegos h2{
@@ -260,36 +326,13 @@ footer .container{
         margin-top: 0;
     }
     #Nuestros-Juegos .carta{
+        width: auto;
+        max-width: none;
         padding: 50px;
+        margin: 30px;
         background-size: 100% 400px;
-        background-repeat: no-repeat;
-        background-position-y: 0;
-        background-color: var(--bg-carta);
+        background-position: top center;
         box-shadow: 2px 2px 10px var(--shadow-button);
-    }
-    .carta:first-child{
-        background-image: linear-gradient(
-            0deg,
-            var(--overlay),
-            var(--overlay)
-        )
-        ,url("imagenes/minecraft.jpg");
-    }
-    .carta:nth-child(2){
-        background-image: linear-gradient(
-            0deg,
-            var(--overlay),
-            var(--overlay)
-        )
-        ,url("imagenes/dugeons.jpg");
-    }
-    .carta:nth-child(3){
-        background-image: linear-gradient(
-            0deg,
-            var(--overlay),
-            var(--overlay)
-        )
-        ,url("imagenes/legends.jpeg");
     }
     #caracteristicas{
         background-image: url("imagenes/panda.gif");
@@ -298,9 +341,11 @@ footer .container{
         background-position: calc(100vw - 500px)  300px;
     }
     #caracteristicas .container{
+        padding: 200px 50px;
         text-align: initial;
     }
     #caracteristicas ul{
+        display: block;
         margin-left: 20px;
     }
     #final h2{
